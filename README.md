@@ -1,1 +1,1 @@
-This directory contains all my College and publication projects :)
+This directory contains all my college and publication projects :)
