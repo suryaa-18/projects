@@ -18,7 +18,7 @@ const educationData = [
     icon: GraduationCap,
   },
   {
-    degree: 'Higher Secondary Certificate (HSC)',
+    degree: 'Grade XII, Higher Secondary Education (HSE)',
     institute: 'Venkatalakshmi Matriculation Higher Secondary School, Coimbatore',
     duration: 'May 2021',
     score: 'Percentage: 93.16%',
@@ -26,7 +26,7 @@ const educationData = [
     icon: GraduationCap,
   },
   {
-    degree: 'Secondary School Leaving Certificate (SSLC)',
+    degree: 'Grade X, Secondary School Education (SSE)',
     institute: 'Venkatalakshmi Matriculation Higher Secondary School, Coimbatore',
     duration: 'May 2019',
     score: 'Percentage: 88.8%',
@@ -51,13 +51,7 @@ export default function Education() {
                 <p className="education__institute">{edu.institute}</p>
                 <p className="education__duration">{edu.duration}</p>
                 <p className="education__score">{edu.score}</p>
-                {edu.highlights.length > 0 && (
-                  <ul className="education__highlights">
-                    {edu.highlights.map((highlight, i) => (
-                      <li key={i}>{highlight}</li>
-                    ))}
-                  </ul>
-                )}
+                <p className="education__highlights">{edu.highlights.join(', ')}</p>
               </div>
             </article>
           ))}

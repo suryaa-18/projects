@@ -1,47 +1,5 @@
-const projectsData = [
-  {
-    title: 'Noise-Aware Hybrid Quantum Transfer Learning for Breast Cancer Diagnosis',
-    description: 'Built a hybrid quantum-classical model for breast cancer classification on the BreakHis histopathology dataset, achieving 90% accuracy under noise-robust evaluation.',
-    tech: ['Python', 'PyTorch', 'PennyLane', 'OpenCV', 'NumPy'],
-    image: '/assets/1.svg',
-      github: 'https://github.com/suryaa-18/projects/tree/main/QTL-with-noise-mitigation-system-for-breast-cancer-classification',
-  },
-  {
-    title: 'FedAdapt: Federated Learning with Riemannian Manifold & ATCNet for EEG Classification',
-    description: 'Developed a privacy-preserving federated learning framework for motor-imagery EEG classification, achieving 78.8% cross-subject accuracy on the BCI Competition IV 2a dataset.',
-    tech: ['Python', 'PyTorch', 'BCI', 'Flower', 'MOABB', 'ATCNet'],
-    image: '/assets/2.svg',
-      github: 'https://github.com/suryaa-18/projects/tree/main/FedAdapt%20FL%20Motor%20Imagery%20EEG',
-  },
-  {
-    title: 'AI-Powered Expense Tracker & Financial Planning System',
-    description: 'Built a full-stack expense management application with token-based authentication, REST APIs, NLP expense parsing, and interactive financial analytics dashboards.',
-    tech: ['Django REST Framework', 'React', 'SQLite', 'REST API', 'NLP'],
-    image: '/assets/3.svg',
-      github: 'https://github.com/suryaa-18/projects/tree/main/Expense%20Tracker%20-%20Django%20%26%20AI',
-  },
-  {
-  title: 'Tri-Stage Automated Dengue Detection System',
-  description: 'Developed an end-to-end AI diagnostic pipeline using YOLOv8s for blood cell detection, Sequential CNN for WBC classification, and Random Forest with CBC features for automated dengue prediction.',
-  tech: ['Python', 'YOLOv8', 'CNN', 'Random Forest', 'OpenCV', 'Scikit-learn'],
-  image: '/assets/4.svg',
-  github: 'https://github.com/suryaa-18/projects/tree/main/Tri-State-Dengue-Automation',
-},
-{
-  title: 'LSTM-Based Stock Price Prediction System',
-  description: 'Built a time-series forecasting system using stacked LSTM networks with historical stock data, MinMax normalization, dropout regularization, and predictive visualization for technology stocks.',
-  tech: ['Python', 'TensorFlow', 'Keras', 'LSTM', 'Scikit-learn', 'yFinance'],
-  image: '/assets/5.svg',
-  github: 'https://github.com/suryaa-18/projects/tree/main/Stock-Prediction-using-Machine-Learning',
-},
-{
-  title: 'Ensemble-Based Disease Prediction System',
-  description: 'Developed a symptom-based disease prediction system using an ensemble of Naive Bayes, Decision Tree, and Random Forest models with soft voting to provide disease predictions, confidence scores, and top-ranked diagnoses.',
-  tech: ['Python', 'Scikit-learn', 'Random Forest', 'Decision Tree', 'Naive Bayes', 'Pandas'],
-  image: '/assets/6.svg',
-  github: 'https://github.com/suryaa-18/projects/tree/main/Disease-Prediction-by-Model-Ensembling',
-},
-];
+import { Link } from 'react-router-dom';
+import { projectsData } from '../data/projects';
 
 const GithubIcon = () => (
   <svg className="icon" viewBox="0 0 24 24" fill="currentColor">
@@ -75,9 +33,12 @@ export default function Projects() {
                     </span>
                   ))}
                 </div>
-                {project.github && (
-                  <div className="project__links">
-                    <a
+                 <div className="project__links">
+                   <Link to={`/projects/${project.slug}`} className="project__link">
+                     Case study
+                   </Link>
+                   {project.github && (
+                     <a
                       href={project.github}
                       className="project__link"
                       target="_blank"
@@ -85,9 +46,9 @@ export default function Projects() {
                     >
                       <GithubIcon />
                       Code
-                    </a>
-                  </div>
-                )}
+                     </a>
+                   )}
+                 </div>
               </div>
             </article>
           ))}

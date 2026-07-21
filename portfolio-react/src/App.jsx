@@ -10,8 +10,18 @@ import Achievements from './components/Achievements';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ScrollTop from './components/ScrollTop';
+import ProjectDetail from './components/ProjectDetail';
+import { Routes, Route, useLocation } from 'react-router-dom';
 
-function App() {
+function Home() {
+  const { hash } = useLocation();
+
+  useEffect(() => {
+    if (hash) {
+      document.querySelector(hash)?.scrollIntoView();
+    }
+  }, [hash]);
+
   useEffect(() => {
     // Initialize intersection observer for fade-in animations
     const observerOptions = {
@@ -57,6 +67,16 @@ function App() {
       <Footer />
       <ScrollTop />
     </>
+  );
+}
+
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/projects/:slug" element={<ProjectDetail />} />
+      <Route path="*" element={<ProjectDetail />} />
+    </Routes>
   );
 }
 

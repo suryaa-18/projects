@@ -1,0 +1,15 @@
+export default {
+  architecture: [
+    'Image Preprocessing & Classical Feature Extraction: Histopathological images from the BreaKHis dataset undergo CLAHE-based contrast enhancement, spatial normalization, intensity normalization, and data augmentation to improve feature consistency. A pretrained EfficientNet-B0 backbone then extracts a 1,280-dimensional feature representation, which is compressed through a learnable linear projection into a compact six-dimensional latent space suitable for quantum processing.',
+
+    'Noise-Resilient Hybrid Quantum Processing: The projected features are encoded into a six-qubit Variational Quantum Circuit (VQC) using angle encoding. The circuit employs trainable Rx, Ry, and Rz rotation gates with all-to-all CNOT entanglement to capture nonlinear feature interactions. Realistic NISQ noise models—including Depolarizing, Pauli, and Phase-Damping channels—are injected during quantum execution to simulate practical quantum hardware, while quantum gradients are optimized using the parameter-shift rule for end-to-end hybrid learning.',
+
+    'Attention-Based Classification & Error Mitigation: Quantum expectation values are processed through a lightweight attention module that adaptively emphasizes discriminative quantum features before binary classification. During inference, Zero-Noise Extrapolation (ZNE) evaluates the quantum circuit at multiple scaled noise levels and extrapolates the results toward a zero-noise estimate, improving prediction reliability without retraining and enabling robust deployment on near-term quantum hardware.'
+  ],
+
+  result:
+    'The proposed Noise-Adaptive Hybrid Quantum Transfer Learning framework achieved 99.60% classification accuracy, 99.58% precision, 99.55% recall, and 99.56% F1-score on the BreaKHis breast cancer histopathology dataset under noise-free conditions while reducing trainable parameters from approximately 15.69 million (EfficientNet-B0) to 4.02 million. Extensive experiments under realistic NISQ noise demonstrated that Zero-Noise Extrapolation significantly recovered diagnostic performance under medium and high noise regimes while maintaining clinically relevant sensitivity-specificity trade-offs.',
+
+  novelty:
+    'Introduced a practical noise-aware hybrid quantum-classical diagnostic framework that integrates EfficientNet-B0 feature extraction, compact six-qubit variational quantum circuits, realistic NISQ noise modeling, and inference-time Zero-Noise Extrapolation into a unified end-to-end architecture. Unlike prior hybrid quantum learning methods that assume ideal quantum execution, the proposed framework systematically evaluates the effects of multiple quantum noise channels on clinical metrics, characterizes sensitivity-specificity trade-offs, and provides a deployable strategy for reliable medical image classification on near-term quantum hardware.'
+};
