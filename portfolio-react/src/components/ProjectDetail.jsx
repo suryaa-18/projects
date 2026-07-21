@@ -1,4 +1,5 @@
 import { ArrowLeft, ExternalLink } from 'lucide-react';
+import { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { projectsData } from '../data/projects';
 import quantumTransferLearning from '../data/project-details/quantum-transfer-learning-breast-cancer';
@@ -27,6 +28,10 @@ export default function ProjectDetail() {
   const { slug } = useParams();
   const project = projectsData.find((item) => item.slug === slug);
   const detail = projectDetails[slug];
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [slug]);
 
   if (!project || !detail) {
     return (
